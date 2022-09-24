@@ -1,0 +1,11 @@
+development:
+  adapter: async
+
+test:
+  adapter: test
+
+production:
+  #adapter: redis  削除
+  adapter: async # 追記
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  channel_prefix: comment_app_production
